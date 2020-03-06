@@ -1,0 +1,72 @@
+.main-app {
+    background-color: #000;
+    color: #fff;
+    padding: 15px;
+}
+
+a {
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Font Sizes */
+h1 {
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.title {
+    font-size: 26px;
+}
+
+.second-title {
+    font-size: 24px;
+}
+
+.third-title {
+    font-size: 20px;
+}
+
+p {
+    padding: 10px 0;
+}
+
+/* Search Bar */
+.search-bar {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+/* Popular Movies Container */
+.popular-movies {
+    height: 500px;
+    padding: 25px;
+}
+
+/* Star Icon */
+.fa-star {
+    color: yellow;
+}
+
+/* Carousel */
+.carousel {
+    max-height: 300px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.carousel-control-prev {
+    left: -65px;
+}
+
+.carousel-control-next {
+    right: -65px;
+}
+
+.carousel-indicators {
+    bottom: -65px;
+}
