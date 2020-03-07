@@ -2,15 +2,18 @@
 
 Your personal MDB view the popular movies of the day, search for any of your favourite movies and view more information on each movie.
 
-## Available Scripts
+## How to use
 
-In the project directory, you can run:
+To run this app you can clone the repository to your local machine, open your command line and point to the directory of this repository. Once that is done type the following command:
 
-### `yarn start`
+### `npm install`
+
+This will install all the dependencies you need to be able to run this app. After that's concluded, to run the app type the following command:
+
 ### `npm start`
 
-Use either npm or yarn to run the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Use npm to run the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser, although this should open automatically.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
