@@ -13,10 +13,22 @@ a:hover {
     color: #fff;
 }
 
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
 /* Font Sizes */
 h1 {
     width: 100%;
     padding-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.3rem;
 }
 
 .title {
@@ -33,6 +45,11 @@ h1 {
 
 p {
     padding: 10px 0;
+    font-size: 0.9rem;
+}
+
+span {
+    font-size: 0.9rem;
 }
 
 /* Search Bar */
@@ -41,10 +58,24 @@ p {
     margin: 20px auto;
 }
 
-/* Popular Movies Container */
+/* Popular Movies */
 .popular-movies {
     height: 500px;
     padding: 25px;
+}
+
+.popular-movies-img {
+    text-align: center;
+}
+
+@media screen and (max-width: 430px){
+    .popular-movies-img {
+        padding: 0;
+    }
+
+    .popular-movies-img img {
+        width: 150px;
+    }
 }
 
 /* Star Icon */
@@ -69,4 +100,33 @@ p {
 
 .carousel-indicators {
     bottom: -65px;
+}
+
+/* Search Results */
+.results-container {
+    background-color: #272727;
+    position: relative;
+    bottom: 17px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.search-results{
+    padding: 10px;
+    display: flex;
+    border-bottom: 0.5px solid #fff;
+}
+
+.search-results .col {
+    padding: 0;
+    margin: 0 10px;
+    width: 50%;
+}
+
+.results-image {
+    max-width: 100px;
+}
+
+.results-info {
+    padding: 5px 15px;
 }

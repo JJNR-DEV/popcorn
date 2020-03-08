@@ -40,7 +40,7 @@ class PopularMovies extends React.Component {
                 <Carousel.Item key={movie.id} onClick={() => this.handleClick(movie.id)}>
                     <Link to="/movie-info">
                         <Row>                 
-                            <Col>
+                            <Col className="popular-movies-img">
                                 <img src={baseURL + movie.poster_path} alt={movie.title} />  
                             </Col>
                                 

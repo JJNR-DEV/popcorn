@@ -18,7 +18,27 @@ const movieSelectedReducer = (state = { render: false, movie: null }, action) =>
     }
 }
 
+const searchedMovieReducer = (state = null, action) => {
+    switch(action.type){
+        case 'SEARCHED_MOVIE':
+            return action.payload
+        default:
+            return state
+    }
+}
+
+const displaySearchResultsReducer = (state = {}, action) => {
+    switch(action.type){
+        case 'DISPLAY_SEARCH_RESULTS':
+            return action.payload
+        default:
+            return state
+    }
+}
+
 export default combineReducers({
     popularMovies: popularMoviesReducer,
-    selectedMovie: movieSelectedReducer
+    selectedMovie: movieSelectedReducer,
+    searchedMovie: searchedMovieReducer, 
+    displaySearchResults: displaySearchResultsReducer
 })
