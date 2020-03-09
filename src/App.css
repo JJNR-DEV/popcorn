@@ -130,3 +130,41 @@ span {
 .results-info {
     padding: 5px 15px;
 }
+
+/* Selected Movie */
+
+.return-main {
+    padding-left: 15px;
+}
+
+.movie-poster {
+    text-align: center;
+}
+
+.col-12 {
+    padding: 15px;
+}
+
+@media screen and (max-width: 700px){
+    .movie-poster img {
+        width: 200px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+    
+    .second-title {
+        font-size: 18px;
+    }
+    
+    .third-title {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 475px){
+    .movie-poster img {
+        width: 150px;
+    }
+}

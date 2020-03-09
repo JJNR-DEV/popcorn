@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button'
 import SearchResults from './SearchResults'
 
 class SearchBar extends React.Component {
+    // class level state as you only want the name of the movie
     constructor(props){
         super(props)
         this.state = {
@@ -15,6 +16,7 @@ class SearchBar extends React.Component {
         }
     }
 
+    // when user is typing 
     handleInputChange(e){
         this.setState({
             movie: e.target.value
@@ -23,12 +25,13 @@ class SearchBar extends React.Component {
 
     searchMovie = e =>{
         e.preventDefault()
+        // search user input
         this.props.fetchSearchedMovie(this.state.movie)
+        // display results
         this.props.displaySearchResults(true)
     }
 
     render(){
-        // console.log(this.props)
         return (
             <div>
                 <Form onSubmit={e => {this.searchMovie(e)}}>

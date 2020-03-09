@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom'
 import { fetchMovie, displaySearchResults } from '../actions'
 
 class SearchResults extends React.Component{
-
+    // when user selects movie go to selected movie details page
     handleClick(id){
         this.props.fetchMovie(id)
+        // hide search results
         this.props.displaySearchResults(false)
     }
     
@@ -40,7 +41,6 @@ class SearchResults extends React.Component{
             return <div></div>
         }
 
-        // console.log(this.props.results.searchedMovie)
         return (
             <div className="results-container">
                 <ul>
@@ -53,7 +53,6 @@ class SearchResults extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        selectedMovie: state.selectedMovie,
         displayResults: state.displaySearchResults
     }
 }

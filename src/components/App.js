@@ -7,6 +7,7 @@ import SelectedMovie from './SelectedMovie'
 import SearchBar from './SearchBar'
 
 const App = () => {
+    // BrowserRouter to navigate between the main screen to selected movie details page
     return (
         <BrowserRouter>
             <div className="main-app">

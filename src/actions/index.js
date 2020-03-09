@@ -3,6 +3,7 @@ import axios from 'axios'
 
 // action creator to collect popular movies for landing screen
 export const fetchPopularMovies = () => async dispatch => {
+    // get popular movies of the day
     const popularMovies = await tmdb.get('/trending/movie/day')
 
     dispatch({
@@ -11,7 +12,9 @@ export const fetchPopularMovies = () => async dispatch => {
     })
 }
 
+// action creator to fetch movie selected
 export const fetchMovie = movieId => async dispatch => {
+    // example of how the link should look
     // https://api.themoviedb.org/3/movie/342470?api_key=bc66ddfc3498c83e45f70e89db21b4eb
 
     const movie = await tmdb.get('/movie/' + movieId)
@@ -19,17 +22,18 @@ export const fetchMovie = movieId => async dispatch => {
     dispatch({
         type: 'SELECTED_MOVIE',
         payload: {
-            render: true,
             movie: movie.data
         }
     })
 }
 
+// action creator to collect results from search bar
 export const fetchSearchedMovie = movieName => async dispatch => {
+    // example of how the link should look
     // https://api.themoviedb.org/3/search/movie?api_key=bc66ddfc3498c83e45f70e89db21b4eb
 
+    // change space to %20 for link params
     let movie = ''
-
     for(var i in movieName){
         movieName[i] === ' ' ? movie += '%20' : movie += movieName[i]
     }
@@ -46,6 +50,7 @@ export const fetchSearchedMovie = movieName => async dispatch => {
     })
 }
 
+// action creator to display the search bar results
 export const displaySearchResults = display => dispatch => {
     dispatch({
         type: 'DISPLAY_SEARCH_RESULTS',

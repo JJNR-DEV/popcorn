@@ -9,10 +9,12 @@ import { Link } from 'react-router-dom'
 import { fetchPopularMovies, fetchMovie } from '../actions'
 
 class PopularMovies extends React.Component {
+    // call action creator for popular movies
     componentDidMount(){
         this.props.fetchPopularMovies()
     }
 
+    // call action creator to fetch details of selected movie
     handleClick(movie){
         this.props.fetchMovie(movie)
     }
@@ -26,7 +28,7 @@ class PopularMovies extends React.Component {
         const baseURL = 'http://image.tmdb.org/t/p/w185/'
 
         return this.props.popularMovies.data.results.map(movie => {
-            // year of release
+            // split to collect only year of release
             const releaseYear = movie.release_date.split('-')[0]
             // shorter description with only 50 words
             let description = movie.overview.split(' ')
@@ -58,7 +60,6 @@ class PopularMovies extends React.Component {
     }
 
     render(){
-
         return (
             <div>
                 <Container className="popular-movies">
@@ -75,10 +76,10 @@ class PopularMovies extends React.Component {
     }
 }
 
+// in this component you only need access to the Popular Movies
 const mapStateToProps = state => {
     return {
-        popularMovies: state.popularMovies,
-        selectedMovie: state.selectedMovie
+        popularMovies: state.popularMovies
     }
 } 
 

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 
+// reducer names explain their purpose
 const popularMoviesReducer = (state = null, action) => {
     switch(action.type){
         case 'POPULAR_MOVIES':
@@ -9,7 +10,7 @@ const popularMoviesReducer = (state = null, action) => {
     }
 }
 
-const movieSelectedReducer = (state = { render: false, movie: null }, action) => {
+const movieSelectedReducer = (state = { movie: null }, action) => {
     switch(action.type){
         case 'SELECTED_MOVIE':
             return action.payload
