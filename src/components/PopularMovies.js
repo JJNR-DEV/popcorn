@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 import { fetchPopularMovies, fetchMovie } from '../actions'
 
-class PopularMovies extends React.Component {
+export class PopularMovies extends React.Component {
     // call action creator for popular movies
     componentDidMount(){
         this.props.fetchPopularMovies()
@@ -27,7 +27,7 @@ class PopularMovies extends React.Component {
         // base url for movie posters
         const baseURL = 'http://image.tmdb.org/t/p/w185/'
 
-        return this.props.popularMovies.data.results.map(movie => {
+        return this.props.popularMovies.results.map(movie => {
             // split to collect only year of release
             const releaseYear = movie.release_date.split('-')[0]
             // shorter description with only 50 words

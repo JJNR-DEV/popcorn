@@ -8,7 +8,7 @@ export const fetchPopularMovies = () => async dispatch => {
 
     dispatch({
         type: 'POPULAR_MOVIES',
-        payload: popularMovies
+        payload: popularMovies.data
     })
 }
 
