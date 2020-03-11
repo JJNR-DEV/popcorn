@@ -18,8 +18,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser, a
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+## Unit Testing
+
+For unit test to perform enter command:
+
+### `npm test`
+
 ## Dependencies
 
-This app was built in React using frameworks such as Redux and React-Bootstrap, package dependencies include Axios@v0.18 and React-Router-DOM, Redux Thunk is the middleware in use, icons from Font Awesome and API calls to "The Movie DataBase".
+This app was built in React using frameworks such as Redux and React-Bootstrap, package dependencies include Axios@v0.18, React-Router-DOM, React-Transition-Group, Enzyme and Enzyme-Adapter for tests, Redux Thunk is the middleware in use, icons from Font Awesome and API calls to "The Movie DataBase".
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
