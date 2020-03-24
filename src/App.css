@@ -1,6 +1,9 @@
 .main-app {
     background-color: #000;
     color: #fff;
+}
+
+.header {
     padding: 15px;
 }
 
@@ -52,10 +55,15 @@ span {
     font-size: 0.9rem;
 }
 
+
 /* Search Bar */
 .search-bar {
     max-width: 400px;
     margin: 20px auto;
+}
+
+.broken-img {
+    filter: invert();
 }
 
 /* Popular Movies */
@@ -76,6 +84,25 @@ span {
     .popular-movies-img img {
         width: 150px;
     }
+}
+
+.slide {
+    height: -webkit-fill-available;
+    height: -moz-available;
+}
+
+.text-description {
+    position: relative;
+    top: 5px;
+}
+
+.browse-popular {
+    text-align: center;
+    font-size: 18px;
+}
+
+.browse-popular a {
+    color: #01d277 !important;
 }
 
 /* Star Icon */
@@ -103,13 +130,27 @@ span {
 }
 
 /* Search Results */
+form {
+    position: relative;
+    z-index: 3;
+}
+
 .results-container {
     background-color: #272727;
-    position: relative;
     bottom: 17px;
     max-width: 400px;
     margin: 0 auto;
+    position: fixed;
+    top: 19.5%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    overflow-y: scroll;
 }
+
+.results-container::-webkit-scrollbar { 
+    display: none; 
+} 
 
 .search-results{
     padding: 10px;
@@ -132,10 +173,6 @@ span {
 }
 
 /* Selected Movie */
-
-.return-main {
-    padding-left: 15px;
-}
 
 .movie-poster {
     text-align: center;

@@ -21,11 +21,22 @@ class SearchBar extends React.Component {
         this.setState({
             movie: e.target.value
         })
+        console.log(this.state)
+        // search user input
+        this.props.fetchSearchedMovie(this.state.movie)
+        // display results
+        this.props.displaySearchResults(true)
     }
 
     searchMovie = e =>{
         e.preventDefault()
         // search user input
+        if(this.state.movie === ''){
+            return (
+                <div>Please write something</div>
+            )
+        }
+
         this.props.fetchSearchedMovie(this.state.movie)
         // display results
         this.props.displaySearchResults(true)

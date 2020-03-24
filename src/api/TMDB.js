@@ -1,6 +1,5 @@
 import axios from 'axios'
-
-const api_key = 'bc66ddfc3498c83e45f70e89db21b4eb'
+import { api_key } from './config/popcorn.json'
 const baseURL = 'https://api.themoviedb.org/3/'
 
 export const tmdb = axios.create({

@@ -2,27 +2,31 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { Link } from 'react-router-dom'
+import Spinner from 'react-bootstrap/Spinner'
 
-const SelectedMovie = props => {
-    // no selected movie
-    if(!props){
-        return
+import { fetchMovie } from '../actions'
+import { baseURL } from './links/Images'
+
+class SelectedMovie extends React.Component {
+
+    componentDidMount(){
+        this.props.fetchMovie()
     }
 
-    if(props.selectedMovie.movie){
-        const movieDetails = props.selectedMovie.movie
+    render(){
+        // no selected movie
+        if(!this.props.selectedMovie.movie){
+            return <div className="text-center"><Spinner animation="grow" variant="light" /></div>
+        }
+
+        const movieDetails = this.props.selectedMovie.movie
+
+        console.log(movieDetails)
         let genre = movieDetails.genres.map(genre => genre.name)
-        genre = genre.join('-')
-        // base url for posters
-        const baseURL = 'http://image.tmdb.org/t/p/w342/'  
+        genre = genre.join(' - ')
+
         return (
             <div>
-                <div className="return-main">
-                    <Link to="/">
-                        <i className="far fa-arrow-alt-circle-left fa-lg"></i>
-                    </Link> 
-                </div>
                 <Row>
                     <Col lg={6} md={6} sm={6} xs={12} className="movie-poster">
                         <img src={baseURL + movieDetails.poster_path} alt={movieDetails.title} />
@@ -39,7 +43,6 @@ const SelectedMovie = props => {
             </div>
         )
     }
-    return <div></div>
 }
 
 // no call to action creator required here but you do need the data from the movieSelectedReducer
@@ -49,4 +52,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(SelectedMovie)
+export default connect(mapStateToProps, { fetchMovie } )(SelectedMovie)

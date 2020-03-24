@@ -13,11 +13,11 @@ export const fetchPopularMovies = () => async dispatch => {
 }
 
 // action creator to fetch movie selected
-export const fetchMovie = movieId => async dispatch => {
-    // example of how the link should look
-    // https://api.themoviedb.org/3/movie/342470?api_key=bc66ddfc3498c83e45f70e89db21b4eb
+export const fetchMovie = () => async dispatch => {
 
-    const movie = await tmdb.get('/movie/' + movieId)
+    const movieID = window.location.search.replace("?=", "")
+
+    const movie = await tmdb.get('/movie/' + movieID)
 
     dispatch({
         type: 'SELECTED_MOVIE',
@@ -29,8 +29,6 @@ export const fetchMovie = movieId => async dispatch => {
 
 // action creator to collect results from search bar
 export const fetchSearchedMovie = movieName => async dispatch => {
-    // example of how the link should look
-    // https://api.themoviedb.org/3/search/movie?api_key=bc66ddfc3498c83e45f70e89db21b4eb
 
     // change space to %20 for link params
     let movie = ''
@@ -51,11 +49,11 @@ export const fetchSearchedMovie = movieName => async dispatch => {
 }
 
 // action creator to display the search bar results
-export const displaySearchResults = display => dispatch => {
-    dispatch({
+export const displaySearchResults = display => {
+    return {
         type: 'DISPLAY_SEARCH_RESULTS',
         payload: {
             displayResults: display
         }
-    })
+    }
 }
