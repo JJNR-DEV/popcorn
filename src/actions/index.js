@@ -12,11 +12,8 @@ export const fetchPopularMovies = () => async dispatch => {
     })
 }
 
-// action creator to fetch movie selected
-export const fetchMovie = () => async dispatch => {
-
-    const movieID = window.location.search.replace("?=", "")
-
+// action creator to fetch movie selected  
+export const fetchMovie = movieID => async dispatch => {
     const movie = await tmdb.get('/movie/' + movieID)
 
     dispatch({
@@ -27,13 +24,18 @@ export const fetchMovie = () => async dispatch => {
     })
 }
 
+// action creator to clear Selected Movie component
+export const clearSelectedMovie = () =>  {
+    return {
+        type: 'CLEAR_SELECTED_MOVIE'
+    }
+}
+
 // action creator to collect results from search bar
 export const fetchSearchedMovie = movieName => async dispatch => {
-
-    // change space to %20 for link params
     let movie = ''
     for(var i in movieName){
-        movieName[i] === ' ' ? movie += '%20' : movie += movieName[i]
+        movie += movieName[i]
     }
 
     // create a new TMDB connection with the search query as part os the link parameters

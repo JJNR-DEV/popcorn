@@ -6,30 +6,27 @@ import Spinner from 'react-bootstrap/Spinner'
 
 import { fetchMovie } from '../actions'
 import { baseURL } from './links/Images'
+import broken from '../images/broken.png'
 
 class SelectedMovie extends React.Component {
-
     componentDidMount(){
-        this.props.fetchMovie()
+        const movieID = window.location.search.replace("?=", "")
+        this.props.fetchMovie(movieID)
     }
 
     render(){
         // no selected movie
-        if(!this.props.selectedMovie.movie){
-            return <div className="text-center"><Spinner animation="grow" variant="light" /></div>
-        }
+        if(!this.props.selectedMovie.movie)return <div className="text-center"><Spinner animation="grow" variant="light" /></div>
 
         const movieDetails = this.props.selectedMovie.movie
-
-        console.log(movieDetails)
         let genre = movieDetails.genres.map(genre => genre.name)
         genre = genre.join(' - ')
 
         return (
             <div>
-                <Row>
+                <Row className="fade-in">
                     <Col lg={6} md={6} sm={6} xs={12} className="movie-poster">
-                        <img src={baseURL + movieDetails.poster_path} alt={movieDetails.title} />
+                        {movieDetails.poster_path === null ? <img src={broken} alt="broken img" style={{filter: 'invert(1)'}} /> : <img src={baseURL + movieDetails.poster_path} alt={movieDetails.title} />}
                     </Col>
 
                     <Col lg={6} md={6} sm={6} xs={12}> 

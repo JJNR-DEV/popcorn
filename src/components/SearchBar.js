@@ -18,12 +18,13 @@ class SearchBar extends React.Component {
 
     // when user is typing 
     handleInputChange(e){
+        // state for when form submit
         this.setState({
             movie: e.target.value
         })
-        console.log(this.state)
-        // search user input
-        this.props.fetchSearchedMovie(this.state.movie)
+
+        // search user input directly from input change as state would not be ready straight away
+        e.target.value === '' ? this.props.fetchSearchedMovie(this.state.movie) : this.props.fetchSearchedMovie(e.target.value)
         // display results
         this.props.displaySearchResults(true)
     }

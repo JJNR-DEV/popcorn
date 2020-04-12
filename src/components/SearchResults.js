@@ -3,14 +3,13 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
 
-import { fetchMovie, displaySearchResults } from '../actions'
+import { displaySearchResults } from '../actions'
 import { baseURL } from './links/Images'
 import broken from '../images/broken.png'
 
 class SearchResults extends React.Component{
     // when user selects movie go to selected movie details page
     handleClick(){
-        this.props.fetchMovie()
         // hide search results
         this.props.displaySearchResults(false)
     }
@@ -40,25 +39,21 @@ class SearchResults extends React.Component{
             position: "relative",
             left: 0,
             right: 0,
+            top: "-20px",
             textAlign: "center",
             padding: "15px"
         }
 
-        console.log(this.props.results)
+        if(!this.props.results) return <div className="results-container" style={style}><Spinner animation="border" variant="light" /></div>
+        if(this.props.results.searchedMovie.length === 0) return <div className="results-container" style={style}>No results found</div>
 
-        if(!this.props.results){
-            return <div className="results-container" style={style}><Spinner animation="border" variant="light" /></div>
-        }
-
-        if(this.props.results.searchedMovie.length === 0){
-            return <div className="results-container" style={style}>No results found</div>
-        }
+        const results = this.props.results.searchedMovie.length < 3 ? {bottom: 'auto'} : {bottom: '0'}
 
         return (
-            <div className="results-container">
+            <div className="results-container" style={results}>
                 <ul>
                     {this.results()}
-                    <div>See more</div>
+                    <div style={{padding: '15px 0', textAlign: 'center'}}>See more</div>
                 </ul>
             </div>
         )
@@ -71,4 +66,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchMovie, displaySearchResults })(SearchResults)
+export default connect(mapStateToProps, { displaySearchResults })(SearchResults)

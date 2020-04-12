@@ -1,13 +1,12 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
 
 import '../App.css'
 import PopularMovies from './PopularMovies'
 import SelectedMovie from './SelectedMovie'
 import SearchBar from './SearchBar'
-import { displaySearchResults } from '../actions'
+import { displaySearchResults, clearSelectedMovie } from '../actions'
 
 const App = props => {
     const handleClick = () => {
@@ -30,18 +29,15 @@ const App = props => {
                         <Link to="/">
                             <h1>PopCorn</h1>
                         </Link>
-                        {window.location.href.includes('/movie-info') ? <Link to="/"><i className="fas fa-chevron-circle-left"></i></Link> : console.log()}
+                        {window.location.href.includes('/movie-info') && <Link to="/"><i className="fas fa-chevron-circle-left" onClick={() => props.clearSelectedMovie()}></i></Link>}
                     </div>
                     
                     <SearchBar />
-                    <TransitionGroup>
-                        <CSSTransition key={location.key} timeout={500} classNames='fade'>
-                            <Switch>
-                                <Route exact path="/" component={PopularMovies} />
-                                <Route exact path="/movie-info" component={SelectedMovie} />
-                            </Switch>
-                        </CSSTransition>  
-                    </TransitionGroup>
+
+                    <Switch>
+                        <Route exact path="/" component={PopularMovies} />
+                        <Route exact path="/movie-info" component={SelectedMovie} />
+                    </Switch>     
                 </div>
             )} />
         </BrowserRouter>
@@ -54,4 +50,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { displaySearchResults })(App)
+export default connect(mapStateToProps, { displaySearchResults, clearSelectedMovie })(App)
