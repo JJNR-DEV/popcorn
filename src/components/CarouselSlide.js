@@ -21,7 +21,7 @@ const CarouselSlide = props => {
                 <div>
                     <LazyLoadImage src={baseURL + props.slide.poster_path} alt={props.slide.title} style={{width: '100%'}} /> 
                 </div>
-                <div className="carousel-slide-desc">
+                <div className="carousel-slide-desc movie-desc">
                     <h3>{props.slide.title} ({props.slide.release_date ? props.slide.release_date.split('-')[0] : props.slide.release_date})</h3>
                     <i className="fas fa-star"></i>
                     <span> {props.slide.vote_average}</span>

@@ -1,4 +1,4 @@
-import { tmdb, tmdbQuery } from '../api/TMDB'
+import { tmdb, tmdbQuery, tmdbPages } from '../api/TMDB'
 import axios from 'axios'
 
 // action creator to collect popular movies for landing screen
@@ -58,4 +58,17 @@ export const displaySearchResults = display => {
             displayResults: display
         }
     }
+}
+
+// action creator to fetch the top rated movies
+export const fecthTopRatedMovies = page => async dispatch => {
+    const topRatedPage = axios.create(tmdbPages(page))
+    const topRatedMovies = await topRatedPage('/movie/top_rated')
+
+    dispatch({
+        type: 'TOP_RATED_MOVIES',
+        payload: {
+            topRated: topRatedMovies.data.results
+        }
+    })
 }

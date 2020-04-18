@@ -39,9 +39,19 @@ const displaySearchResultsReducer = (state = {}, action) => {
     }
 }
 
+const topRatedMoviesReducer = (state = null, action) => {
+    switch(action.type){
+        case 'TOP_RATED_MOVIES':
+            return action.payload
+        default:
+            return state
+    }
+}
+
 export default combineReducers({
     popularMovies: popularMoviesReducer,
     selectedMovie: movieSelectedReducer,
     searchedMovie: searchedMovieReducer, 
-    displaySearchResults: displaySearchResultsReducer
+    displaySearchResults: displaySearchResultsReducer,
+    topRatedMovies: topRatedMoviesReducer
 })
