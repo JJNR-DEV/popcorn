@@ -51,9 +51,8 @@ class SearchResults extends React.Component{
 
         return (
             <div className="results-container" style={results}>
-                <ul>
+                <ul style={{margin: '0'}}>
                     {this.results()}
-                    <div style={{padding: '15px 0', textAlign: 'center'}}>See more</div>
                 </ul>
             </div>
         )

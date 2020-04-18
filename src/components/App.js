@@ -6,6 +6,7 @@ import '../App.css'
 import PopularMovies from './PopularMovies'
 import SelectedMovie from './SelectedMovie'
 import SearchBar from './SearchBar'
+import TopRatedMovies from './TopRatedMovies'
 import { displaySearchResults, clearSelectedMovie } from '../actions'
 
 const App = props => {
@@ -22,14 +23,15 @@ const App = props => {
                     <div className="header">
                         <img 
                             className="float-right" 
-                            src="https://www.themoviedb.org/assets/2/v4/logos/208x226-stacked-green-9484383bd9853615c113f020def5cbe27f6d08a84ff834f41371f223ebad4a3c.png" 
+                            src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg" 
                             alt="TMDB"
-                            width="50px"
+                            width="100px"
                         />
                         <Link to="/">
                             <h1>PopCorn</h1>
                         </Link>
                         {window.location.href.includes('/movie-info') && <Link to="/"><i className="fas fa-chevron-circle-left" onClick={() => props.clearSelectedMovie()}></i></Link>}
+                        {window.location.href.includes('/top-rated') && <Link to="/"><i className="fas fa-chevron-circle-left"></i></Link>}
                     </div>
                     
                     <SearchBar />
@@ -37,6 +39,7 @@ const App = props => {
                     <Switch>
                         <Route exact path="/" component={PopularMovies} />
                         <Route exact path="/movie-info" component={SelectedMovie} />
+                        <Route exact path="/top-rated" component={TopRatedMovies} />
                     </Switch>     
                 </div>
             )} />

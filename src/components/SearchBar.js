@@ -46,7 +46,7 @@ class SearchBar extends React.Component {
     render(){
         return (
             <div>
-                <Form onSubmit={e => {this.searchMovie(e)}}>
+                <Form onSubmit={e => {this.searchMovie(e)}} style={{padding: '0 5px'}}>
                     <InputGroup className="mb-3 search-bar">
                         <Form.Control
                             aria-label="Default"

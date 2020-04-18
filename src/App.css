@@ -24,6 +24,10 @@ li {
     list-style: none;
 }
 
+img {
+    max-width: 200px;
+}
+
 /* Font Sizes */
 h1 {
     width: 100%;
@@ -95,13 +99,10 @@ span {
     top: 5px;
 }
 
-.browse-popular {
-    text-align: center;
+.browse-top {
+    text-align: left;
     font-size: 18px;
-}
-
-.browse-popular a {
-    color: #01d277 !important;
+    color: #90cea1 !important;
 }
 
 /* Star Icon */
@@ -117,6 +118,8 @@ span {
     height: 100%;
     width: 100%;
     justify-content: center;
+    max-width: 1024px;
+    margin: 0 auto;
 }
 
 .left-arrow ,
@@ -134,7 +137,7 @@ span {
     height: 100%;
 }
 
-.carousel-slide-desc h3 {
+.movie-desc h3 {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
