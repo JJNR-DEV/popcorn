@@ -18,6 +18,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser, a
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+### Please Note!
+
+An error will appear on screen has this version does not contain an API key, you will have to insert your own TMDB API key for the app to run successfully!
+
 ## Unit Testing
 
 For unit test to perform enter command:
