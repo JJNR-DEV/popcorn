@@ -32,4 +32,8 @@ For unit test to perform enter command:
 
 This app was built in React using frameworks such as Redux and React-Bootstrap, package dependencies include Axios@v0.18, React-Router-DOM, React-Transition-Group, Enzyme and Enzyme-Adapter for tests, Redux Thunk is the middleware in use, icons from Font Awesome and API calls to "The Movie DataBase".
 
+## Landing Page
+
+![alt text](https://github.com/jrodri06/popcorn/blob/master/popcorn.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
